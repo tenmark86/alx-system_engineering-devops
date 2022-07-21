@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# script that displays lines containing the bash word
+# pgrep - look up or signal processes based on name
+
+ps -auxf | grep bash
