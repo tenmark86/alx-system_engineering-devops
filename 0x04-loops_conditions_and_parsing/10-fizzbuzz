@@ -1,17 +1,14 @@
 #!/usr/bin/env bash
-#Program that prints FizzBuzz sequence
-for i in {1..100}
-do
-    if [ $((i % 5)) -eq 0 -a $((i % 3)) -eq 0 ]
-    then
-	echo "FizzBuzz"
-    elif [ $((i % 5)) -eq 0 ]
-    then
-	echo "Buzz"
-    elif [ $((i % 3)) -eq 0 ]
-    then
-	echo "Fizz"
+# This script displays numbers from 1 to 100
+
+for ((counter=1;counter<=100;counter++)); do
+    if ! ((counter%15)); then
+        echo FizzBuzz
+    elif ! ((counter%3)); then
+        echo Fizz
+    elif ! ((counter%5)); then
+        echo Buzz
     else
-	echo "$i"
-    fi
+        echo $counter
+    fi;
 done

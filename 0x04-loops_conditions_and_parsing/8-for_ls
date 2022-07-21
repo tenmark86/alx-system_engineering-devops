@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
-# Display contento of current directory
-# Where only the part of the name after the first dash is displayed
+# This scripts displays:
+# - The content of the current directory
+# - In a list format
+# - Where only the part of the name after the first dash is displayed
 
-for count in *
+for entry in *
 do
-	echo "$count" | cut -d '-' -f 2
+	echo "$entry" | cut -f 2- -d '-'
 done
