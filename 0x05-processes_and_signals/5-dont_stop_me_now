@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# Kills 4-to_infinity_and_beyond process.
+# prgrep -f - only matched against the process name
+
+IDtask4=$(pgrep -f 4-to_infinity_and_beyond)
+kill "$IDtask4"
