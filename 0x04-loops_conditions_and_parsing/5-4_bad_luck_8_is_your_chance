@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# Print "Best School" 10 times but:
+# in 4th loop print "bad luck"
+# in 8th loop print "good luck"
+
+counter=1
+while [ $counter -le 10 ]
+do
+	if [ $counter == 4 ]
+	then
+		echo "bad luck"
+	elif [ $counter -eq 8 ]
+	then
+		echo "good luck"
+	else
+		echo "Best School"
+	fi
+	((counter++))
+done
