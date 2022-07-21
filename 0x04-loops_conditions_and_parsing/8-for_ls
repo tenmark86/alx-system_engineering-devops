@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Display contento of current directory
+# Where only the part of the name after the first dash is displayed
+
+for count in *
+do
+	echo "$count" | cut -d '-' -f 2
+done
