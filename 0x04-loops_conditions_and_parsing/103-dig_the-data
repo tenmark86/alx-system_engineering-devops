@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
-#Script that parses Apache logs
-awk -F' ' '{ print $1 " " $9 }' apache-access.log | sort | uniq -c | sort -nr
+# display the number of times a specific IP and HTTP code is found in the apache log access file
+
+awk '{ print $1,$9 }' apache-access.log | sort | uniq -c | sort -rn
