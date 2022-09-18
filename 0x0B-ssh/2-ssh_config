@@ -52,8 +52,4 @@ Host *
     GSSAPIAuthentication yes
     GSSAPIDelegateCredentials no
     IdentityFile ~/.ssh/school
-<<<<<<< HEAD
-    PasswordAuthentication noo
-=======
     PasswordAuthentication no
->>>>>>> 5d8d551e318cb728e07e96597f9b133d8595b821
