@@ -1,6 +1,4 @@
-#!/usr/bin/env bash
-#Client configuration file
-
-Host 3.83.32.16
-IdentityFile ~/.ssh/school
-PasswordAuthentication no
+# ssh config file
+Host *
+      PasswordAuthentication no
+      IdentifyFile ~/.ssh/school
