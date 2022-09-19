@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # installs and configures nginx web server to listen to port 80 and
-# serves a page with content `Holberton School` when / is querried
+# serves a page with content `Hello World` when / is querried
 
 apt-get -y update
 apt-get -y install nginx
