@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Script that redirecting to another page
+sudo apt-get -y update
+sudo apt-get -y install nginx
+sudo ufw allow 'Nginx HTTP'
+sudo echo "Hello World" | sudo tee /var/www/html/index.html > /dev/null
+sudo sed -i '/server_name _;/a rewrite ^/redirect_me/ https://www.google.com permanent;' /etc/nginx/sites-available/default
+sudo service nginx restart
