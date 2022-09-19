@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
-# Script that redirecting to another page
-sudo apt-get -y update
-sudo apt-get -y install nginx
-sudo ufw allow 'Nginx HTTP'
-sudo echo "Hello World" | sudo tee /var/www/html/index.html > /dev/null
-sudo sed -i '/server_name _;/a rewrite ^/redirect_me/ https://www.google.com permanent;' /etc/nginx/sites-available/default
-sudo service nginx restart
+# configures an Nginx server so that /redirect_me is redirecting to another page
+
+apt-get -y update
+apt-get -y install nginx
+ufw allow 'Nginx HTTP'
+echo 'Hello World' > /var/www/html/index.nginx-debian.html
+sed -i '/listen 80 default_server;/a rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;' /etc/nginx/sites-available/default
+service nginx start
