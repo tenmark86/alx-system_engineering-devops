@@ -1,5 +1,3 @@
 #!/usr/bin/env bash
-# This shell script starts the
-# apache2 server 
-
-sudo service apache2 start
+# starting apache2
+service apache2 start
