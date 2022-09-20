@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
-# configure apache to run on port 8080 and display Hello Holberton
-# when querying the root of it
+# run apache on holbertonschool/265-0 container
 
-echo "ServerName 127.0.0.1" >> /etc/apache2/apache2.conf
-echo "Listen 8080" >> /etc/apache2/ports.conf
-sed -i "s/<VirtualHost /<VirtualHost *:8080 /" /etc/apache2/sites-enabled/000-default.conf
-sudo service apache2 restart
+echo "ServerName localhost" >> /etc/apache2.conf
+service apache2 start
