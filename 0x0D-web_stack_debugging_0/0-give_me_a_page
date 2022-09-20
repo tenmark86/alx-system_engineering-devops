@@ -1,3 +1,8 @@
 #!/usr/bin/env bash
-# Script that turns on an Apache Server
-service apache2 start
+# configure apache to run on port 8080 and display Hello Holberton
+# when querying the root of it
+
+echo "ServerName 127.0.0.1" >> /etc/apache2/apache2.conf
+echo "Listen 8080" >> /etc/apache2/ports.conf
+sed -i "s/<VirtualHost /<VirtualHost *:8080 /" /etc/apache2/sites-enabled/000-default.conf
+sudo service apache2 restart
