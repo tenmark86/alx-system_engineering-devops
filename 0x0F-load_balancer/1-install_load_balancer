@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Script that install and configure HAproxi loadblancer
+sudo apt-get -y update
+sudo apt-get -y install software-properties-common
+sudo add-apt-repository -y ppa:vbernat/haproxy-2.0
+sudo apt-get -y update
+sudo apt-get -y install haproxy=2.0.\*
+printf "\n\nfrontendtenmark86.tech\n\tbind *:80\n\tmode http\n\tdefault_backend web_servers\n\nbackend web_servers\n\tbalance roundrobin\n\tserver 21750-web-01 3.83.32.16:80\n\tserver 21750-web-02 44.200.150.166:80" >> /etc/haproxy/haproxy.cfg
+sudo service haproxy start
