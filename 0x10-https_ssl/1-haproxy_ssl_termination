@@ -30,8 +30,8 @@ frontend https
 backend app_pool
     balance roundrobin
     redirect scheme https if !{ ssl_fc }
-    server 11580-web-01 3.236.44.4:80 check
-    server 11580-web-02 3.235.147.115:80 check
+    server 21750-web-01 3.83.32.16:80 check
+    server 21750-web-02 44.200.150.166:80 check
 
 backend letsencrypt-backend
     server letsencrypt 127.0.0.1:54321
