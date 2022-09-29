@@ -1,0 +1,37 @@
+global
+    log 127.0.0.1 local0 notice
+    maxconn 2048
+    user haproxy
+    group haproxy
+
+defaults
+    log     global
+    mode    http
+    option  httplog
+    option  dontlognull
+    retries 3
+    option redispatch
+    timeout connect  5000
+    timeout client  10000
+    timeout server  10000
+
+frontend http
+    bind *:80
+    reqadd X-Forwarded-Proto:\ http
+    default_backend app_pool
+
+frontend https
+    bind *:443 ssl crt /etc/haproxy/certs/www.martinsaavedra.tech.pem
+    reqadd X-Forwarded-Proto:\ https
+    acl    letsencrypt-acl path_beg /.well-known/acme-challenge/
+    use_backend letsencrypt-backend if letsencrypt-acl
+    default_backend app_pool
+
+backend app_pool
+    balance roundrobin
+    redirect scheme https if !{ ssl_fc }
+    server 11580-web-01 3.236.44.4:80 check
+    server 11580-web-02 3.235.147.115:80 check
+
+backend letsencrypt-backend
+    server letsencrypt 127.0.0.1:54321
