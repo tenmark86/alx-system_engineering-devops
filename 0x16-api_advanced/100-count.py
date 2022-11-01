@@ -1,48 +1,19 @@
 #!/usr/bin/python3
-""" Write a recursive function that queries the Reddit API """
-from requests import get
+""" Recursive function that queries the Reddit API
+    parses the title of all hot articles, and prints a sorted count"""
+import requests
+import sys
+after = None
+count_dic = []
 
-REDDIT = "https://www.reddit.com/"
-HEADERS = {'user-agent': 'my-app/0.0.1'}
 
-
-def recurse(subreddit, hot_list=[], after=""):
-    """
-    Returns a list containing the titles of all hot articles for a given
-    subreddit. If no results are found for the given subreddit, the function
-    should return None.
-    """
-    if after is None:
-        return hot_list
-
-    url = REDDIT + "r/{}/hot/.json".format(subreddit)
-
-    params = {
-        'limit': 100,
-        'after': after
-    }
-
-    r = get(url, headers=HEADERS, params=params, allow_redirects=False)
-
-    if r.status_code != 200:
-        return None
-
-    try:
-        js = r.json()
-
-    except ValueError:
-        return None
-
-    try:
-
-        data = js.get("data")
-        after = data.get("after")
-        children = data.get("children")
-        for child in children:
-            post = child.get("data")
-            hot_list.append(post.get("title"))
-
-    except:
-        return None
-
-    return recurse(subreddit, hot_list, after)
+def count_words(subreddit, word_list):
+    """parses the title of all hot articles, and prints a sorted count of given
+    keywords (case-insensitive, delimited by spaces) """
+    global after
+    global count_dic
+    headers = {'User-Agent': 'xica369'}
+    url = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
+    parameters = {'after': after}
+    response = requests.get(url, headers=headers, allow_redirects=False,
+            params=parameters))
