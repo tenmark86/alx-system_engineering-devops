@@ -1,5 +1,5 @@
-![C](https://i.pinimg.com/originals/9d/48/cf/9d48cf0d456361dd8cea1576220d2c76.gif)
 
+![Cod](https://i.pinimg.com/originals/9d/48/cf/9d48cf0d456361dd8cea1576220d2c76.gif)
 
 # Call Of Duty server requests failure report
 
