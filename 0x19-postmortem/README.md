@@ -1,5 +1,5 @@
 
-![Cod](https://media.tenor.com/4ehBI_jmjr8AAAAC/bravo-six-going-dark-captain-price.gif)
+![Cod](https://media2.giphy.com/media/fwoOoDZpEpdQewQdRR/giphy.gif)
 
 # Call Of Duty server requests failure report
 
